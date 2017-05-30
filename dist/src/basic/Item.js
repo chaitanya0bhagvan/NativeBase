@@ -1,10 +1,10 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.Item=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=require('react');var _react2=_interopRequireDefault(_react);
+Object.defineProperty(exports,"__esModule",{value:true});exports.Item=undefined;var _jsxFileName='src/basic/Item.js';var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=require('react');var _react2=_interopRequireDefault(_react);
 var _reactNative=require('react-native');
 var _Input=require('./Input');
 var _Label=require('./Label');
 var _Icon=require('./Icon');
 
-var _theme=require('@shoutem/theme');
+var _nativeBaseShoutemTheme=require('native-base-shoutem-theme');
 var _platform=require('../theme/variables/platform');var _platform2=_interopRequireDefault(_platform);
 var _computeProps=require('../Utils/computeProps');var _computeProps2=_interopRequireDefault(_computeProps);
 var _mapPropsToStyleNames=require('../Utils/mapPropsToStyleNames');var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);
@@ -112,16 +112,16 @@ return item;
 }
 });
 if(this.props.floatingLabel&&icon.length){
-newChildren.push(_react2.default.createElement(_Icon.Icon,_extends({key:'i1'},iconProps,{style:{top:6}})));
-newChildren.push(_react2.default.createElement(_reactNative.Animated.View,{key:'float',style:{position:'absolute',left:this.props.last?22:22,right:0,top:this.state.topAnim,opacity:this.state.opacAnim,paddingTop:_reactNative.Platform.OS==='ios'?undefined:undefined,paddingBottom:_reactNative.Platform.OS==='ios'?undefined:12}},_react2.default.createElement(_Label.Label,labelProps,this.renderLabel(label,labelProps))));
-newChildren.push(_react2.default.createElement(_Input.Input,_extends({key:'l2'},inputProps,{onFocus:function onFocus(){_this2.setState({isFocused:true});inputProps.onFocus&&inputProps.onFocus();},onBlur:function onBlur(){!_this2.state.text.length&&_this2.setState({isFocused:false});inputProps.onBlur&&inputProps.onBlur();},onChangeText:function onChangeText(text){_this2.setState({text:text});inputProps.onChangeText&&inputProps.onChangeText(text);}})));
+newChildren.push(_react2.default.createElement(_Icon.Icon,_extends({key:'i1'},iconProps,{__source:{fileName:_jsxFileName,lineNumber:115}})));
+newChildren.push(_react2.default.createElement(_reactNative.Animated.View,{key:'float',style:{position:'absolute',left:this.props.last?22:22,right:0,top:this.state.topAnim,opacity:this.state.opacAnim,paddingTop:_reactNative.Platform.OS==='ios'?undefined:undefined,paddingBottom:_reactNative.Platform.OS==='ios'?undefined:12},__source:{fileName:_jsxFileName,lineNumber:116}},_react2.default.createElement(_Label.Label,_extends({},labelProps,{__source:{fileName:_jsxFileName,lineNumber:116}}),this.renderLabel(label,labelProps))));
+newChildren.push(_react2.default.createElement(_Input.Input,_extends({key:'l2'},inputProps,{onFocus:function onFocus(){_this2.setState({isFocused:true});inputProps.onFocus&&inputProps.onFocus();},onBlur:function onBlur(){!_this2.state.text.length&&_this2.setState({isFocused:false});inputProps.onBlur&&inputProps.onBlur();},onChangeText:function onChangeText(text){_this2.setState({text:text});inputProps.onChangeText&&inputProps.onChangeText(text);},__source:{fileName:_jsxFileName,lineNumber:117}})));
 }else
 if(this.props.floatingLabel){
-newChildren.push(_react2.default.createElement(_reactNative.Animated.View,{key:'float',style:{position:'absolute',left:this.props.last?15:0,right:0,top:this.state.topAnim,opacity:this.state.opacAnim,paddingTop:_reactNative.Platform.OS==='ios'?undefined:undefined,paddingBottom:_reactNative.Platform.OS==='ios'?undefined:12}},_react2.default.createElement(_Label.Label,labelProps,this.renderLabel(label,labelProps))));
-newChildren.push(_react2.default.createElement(_Input.Input,_extends({ref:function ref(c){return _this2._inputRef=c;},value:this.state.text,key:'l2'},inputProps,{onFocus:function onFocus(){_this2.setState({isFocused:true});inputProps.onFocus&&inputProps.onFocus();},onBlur:function onBlur(){!_this2.state.text.length&&_this2.setState({isFocused:false});inputProps.onBlur&&inputProps.onBlur();},onChangeText:function onChangeText(text){_this2.setState({text:text});inputProps.onChangeText&&inputProps.onChangeText(text);}})));
+newChildren.push(_react2.default.createElement(_reactNative.Animated.View,{key:'float',style:{position:'absolute',left:this.props.last?15:0,right:0,top:this.state.topAnim,opacity:this.state.opacAnim,paddingTop:_reactNative.Platform.OS==='ios'?undefined:undefined,paddingBottom:_reactNative.Platform.OS==='ios'?undefined:12},__source:{fileName:_jsxFileName,lineNumber:120}},_react2.default.createElement(_Label.Label,_extends({},labelProps,{__source:{fileName:_jsxFileName,lineNumber:120}}),this.renderLabel(label,labelProps))));
+newChildren.push(_react2.default.createElement(_Input.Input,_extends({ref:function ref(c){return _this2._inputRef=c;},value:this.state.text,key:'l2'},inputProps,{onFocus:function onFocus(){_this2.setState({isFocused:true});inputProps.onFocus&&inputProps.onFocus();},onBlur:function onBlur(){!_this2.state.text.length&&_this2.setState({isFocused:false});inputProps.onBlur&&inputProps.onBlur();},onChangeText:function onChangeText(text){_this2.setState({text:text});inputProps.onChangeText&&inputProps.onChangeText(text);},__source:{fileName:_jsxFileName,lineNumber:121}})));
 }else
 if(this.props.stackedLabel&&icon.length){
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'s',style:{flexDirection:'row',flex:1,width:_platform2.default.deviceWidth-15}},_react2.default.createElement(_Icon.Icon,_extends({key:'s1'},iconProps,{style:{marginTop:36}})),_react2.default.createElement(_reactNative.View,{style:{flexDirection:'column'}},_react2.default.createElement(_Label.Label,_extends({key:'s2'},labelProps)),_react2.default.createElement(_Input.Input,_extends({key:'s3'},inputProps,{style:{width:_platform2.default.deviceWidth-40}})))));
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'s',style:{flexDirection:'row',flex:1,width:_platform2.default.deviceWidth-15},__source:{fileName:_jsxFileName,lineNumber:124}},_react2.default.createElement(_Icon.Icon,_extends({key:'s1'},iconProps,{__source:{fileName:_jsxFileName,lineNumber:124}})),_react2.default.createElement(_reactNative.View,{style:{flexDirection:'column'},__source:{fileName:_jsxFileName,lineNumber:124}},_react2.default.createElement(_Label.Label,_extends({key:'s2'},labelProps,{__source:{fileName:_jsxFileName,lineNumber:124}})),_react2.default.createElement(_Input.Input,_extends({key:'s3'},inputProps,{style:{width:_platform2.default.deviceWidth-40},__source:{fileName:_jsxFileName,lineNumber:124}})))));
 
 }else
 {
@@ -147,7 +147,7 @@ return(0,_computeProps2.default)(this.props,defaultProps);
 }},{key:'render',value:function render()
 {var _this3=this;
 return(
-_react2.default.createElement(_reactNative.TouchableOpacity,_extends({ref:function ref(c){return _this3._root=c;}},this.prepareRootProps(),{activeOpacity:1}),
+_react2.default.createElement(_reactNative.TouchableOpacity,_extends({ref:function ref(c){return _this3._root=c;}},this.prepareRootProps(),{activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:150}}),
 this.renderChildren()));
 
 
@@ -176,7 +176,7 @@ success:_react2.default.PropTypes.bool,
 error:_react2.default.PropTypes.bool});
 
 
-var StyledItem=(0,_theme.connectStyle)('NativeBase.Item',{},_mapPropsToStyleNames2.default)(Item);exports.
+var StyledItem=(0,_nativeBaseShoutemTheme.connectStyle)('NativeBase.Item',{},_mapPropsToStyleNames2.default)(Item);exports.
 
 
 Item=StyledItem;

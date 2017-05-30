@@ -1,7 +1,7 @@
 /* @flow */
 
 import React, { Component } from 'react';
-import { Picker, Modal, View, ListView } from 'react-native';
+import { Picker, Modal, View, ListView, ViewPropTypes } from 'react-native';
 import _ from 'lodash';
 import { Text } from './Text';
 import { List } from './List';
@@ -16,7 +16,7 @@ import { Title } from './Title';
 import { Left } from './Left';
 import { Right } from './Right';
 import { Body } from './Body';
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import computeProps from '../Utils/computeProps';
 
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
@@ -25,21 +25,27 @@ class PickerNB extends Component {
 
   constructor(props) {
     super(props);
-    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
       modalVisible: false,
       currentLabel: this.getLabel(props),
-      dataSource: ds.cloneWithRows(this.props.children),
+      dataSource: props.children
     };
   }
 
   componentWillReceiveProps(nextProps) {
     const currentLabel = this.state.currentLabel;
     const nextLabel = this.getLabel(nextProps);
+    const currentDS = this.state.dataSource;
+    const nextDS = nextProps.children
 
     if (currentLabel !== nextLabel) {
       this.setState({
         currentLabel: nextLabel,
+      });
+    }
+    if (currentDS !== nextDS) {
+      this.setState({
+        dataSource: nextDS,
       });
     }
   }
@@ -83,7 +89,7 @@ class PickerNB extends Component {
         newChildren.push(child);
       }
     });
-    return <Header {...this.props.headerComponent.props} > {newChildren}</Header>;
+    return <Header {...this.props.headerComponent.props} >{newChildren}</Header>;
   }
 
   renderIcon() {
@@ -109,12 +115,12 @@ class PickerNB extends Component {
   }
 
   renderHeader() {
-    return (this.props.headerComponent) ? this.modifyHeader() : (<Header >
+    return (this.props.headerComponent) ? this.modifyHeader() : (<Header style={this.props.headerStyle} >
       <Left><Button
-        style={{ shadowOffset: null, shadowColor: null, shadowRadius: null, shadowOpacity: null }}
+        style={{ shadowOffset: null, shadowColor: null, shadowRadius: null, shadowOpacity: null, ...this.props.headerBackButtonStyle}}
         transparent onPress={() => { this._setModalVisible(false); }}
-      ><Text>Back</Text></Button></Left>
-    <Body><Title>{(this.props.iosHeader) ? this.props.iosHeader : 'Select One'}</Title></Body>
+      ><Text>{this.props.headerBackButtonText || 'Back'}</Text></Button></Left>
+    <Body><Title style={this.props.headerTitleStyle}>{this.props.iosHeader || 'Select One'}</Title></Body>
       <Right />
     </Header>);
   }
@@ -124,6 +130,7 @@ class PickerNB extends Component {
       <View ref={c => this._root = c}>
         {this.renderButton()}
         <Modal
+          supportedOrientations={this.props.supportedOrientations || null}
           animationType="slide"
           transparent={false}
           visible={this.state.modalVisible}
@@ -132,8 +139,8 @@ class PickerNB extends Component {
           <Container>
             {this.renderHeader()}
             <Content>
-              <ListView
-                dataSource={this.state.dataSource}
+              <List
+                dataArray={this.state.dataSource}
                 renderRow={child =>
                   <ListItem
                     selected={(child.props.value === this.props.selectedValue) ? true : false}
@@ -174,7 +181,7 @@ PickerNB.Item = React.createClass({
 });
 
 PickerNB.propTypes = {
-  ...View.propTypes,
+  ...ViewPropTypes,
 };
 
 const StyledPickerNB = connectStyle('NativeBase.PickerNB', {}, mapPropsToStyleNames)(PickerNB);

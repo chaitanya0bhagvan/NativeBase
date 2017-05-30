@@ -12,13 +12,14 @@ const {
   StyleSheet,
   InteractionManager,
   Platform,
+  ViewPropTypes
 } = ReactNative;
 const TimerMixin = require('react-timer-mixin');
 import _ from 'lodash';
 
 const SceneComponent = require('./SceneComponent');
 const { DefaultTabBar } = require('./DefaultTabBar');
-const ScrollableTabBar = require('./ScrollableTabBar');
+const { ScrollableTabBar } = require('./ScrollableTabBar');
 
 
 const ScrollableTabView = React.createClass({
@@ -35,7 +36,7 @@ const ScrollableTabView = React.createClass({
     onChangeTab: PropTypes.func,
     onScroll: PropTypes.func,
     renderTabBar: PropTypes.any,
-    style: View.propTypes.style,
+    style: ViewPropTypes.style,
     contentProps: PropTypes.object,
     scrollWithoutAnimation: PropTypes.bool,
     locked: PropTypes.bool,
